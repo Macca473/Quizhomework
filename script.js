@@ -20,14 +20,30 @@ $(document).ready(function() {
 
   $("#countdowntime").append(countdown());
 
+  //////////////////////////////Correct Answer
+
+  function answercheck() {
+    var tf = false;
+    var correct = ["4"
+                  ,"what? that makes no sense"
+                  ];
+
+    if ($("cli").text() = 4) {
+      tf = true };
+      return tf
+  }
+
+  
+
   //////////////////////////////Question
 
   function questionarray() {
     var question = ["how many legs does a cat have?"
-                  , "how many cats does a leg have?"
-                  ];
+                   , "how many cats does a leg have?"
+                   ];
     $("#ques").text(question[0]);
     console.log(question[0]);
+    
   }
 
   $("#ques").append(questionarray());
@@ -35,8 +51,9 @@ $(document).ready(function() {
   //////////////////////////////Answer 0
 
   $("#answ0").click(function() { 
-    console.log("clicked");
+    console.log("clicked Answer 0");
     $("#answ0").toggleClass("cli");
+    console.log("answer " + answercheck());
   });
 
   function answer0array() {
@@ -52,8 +69,9 @@ $(document).ready(function() {
   //////////////////////////////Answer 1
 
   $("#answ1").click(function() { 
-    console.log("clicked");
+    console.log("clicked Answer 1");
     $("#answ1").toggleClass("cli");
+    console.log("answer " + answercheck());
   });
 
   function answer1array() {
@@ -69,8 +87,9 @@ $(document).ready(function() {
   //////////////////////////////Answer 2
 
   $("#answ2").click(function() { 
-    console.log("clicked");
+    console.log("clicked Answer 2");
     $("#answ2").toggleClass("cli");
+    console.log("answer " + answercheck());
   });
 
   function answer2array(num) {
@@ -86,8 +105,9 @@ $(document).ready(function() {
   //////////////////////////////Answer 3
 
   $("#answ3").click(function() { 
-    console.log("clicked");
+    console.log("clicked Answer 3");
     $("#answ3").toggleClass("cli");
+    console.log("answer " + answercheck());
   });
 
   function answer3array(num) {
@@ -96,6 +116,7 @@ $(document).ready(function() {
                   ];
     $("#answ3").text(answer3[0]);
     console.log(answer3[0]);
+
   }
 
   $("#answ3").append(answer3array());
