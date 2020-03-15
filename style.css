@@ -32,4 +32,11 @@
     background-color: hotpink;
     margin: 30px;
     border-radius: 20px;
+    rotate: 0deg;
+    transition: all 0.3s ease-in-out;
+}
+
+.cli{
+    rotate: 180deg;
+    background-color: teal;
 }
