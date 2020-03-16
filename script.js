@@ -16,12 +16,14 @@ $(document).ready(function() {
       if(tm == 0) {
         tm = 30;
         $("#countdowntime").text(tm);
+        restart();
         // clearInterval(si);
         }
-        // } else if(selec != "ph") {
-        // tm = 30;
-        // $("#countdowntime").text(tm);
-        // }
+        else if($(".cli").text() !== "") {
+        tm = 30;
+        $("#countdowntime").text(tm);
+        }
+      $(".cli").removeClass("cli");
     },1000)
   }
 
@@ -158,6 +160,11 @@ $(document).ready(function() {
 
   function restart() {
     Quesnum = 0;
+    questionarray();
+    answer0array();
+    answer1array();
+    answer2array();
+    answer3array();
     return;
   }
 
