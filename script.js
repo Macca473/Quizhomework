@@ -11,13 +11,14 @@ $(document).ready(function() {
     var si = setInterval(function setint() {
       tm--;
       $("#countdowntime").text(tm);
+      tm = $("#countdowntime").text();
       // console.log("inside tm " + tm);
-      if(tm <= 0) {
+      if(tm == 0) {
         tm = 30;
         $("#countdowntime").text(tm);
         // clearInterval(si);
         }
-        // } else if(selec !== "ph") {
+        // } else if(selec != "ph") {
         // tm = 30;
         // $("#countdowntime").text(tm);
         // }
@@ -135,27 +136,29 @@ $(document).ready(function() {
     var correct = ["4"
                   ,"what? that makes no sense"
                   ];
-    $(".answer").delay(800).removeClass("cli");
     console.log("correct answ " + correct[Quesnum]);
       if (selec == correct[Quesnum]) {
         tf = true;
         Quesnum = Quesnum + 1;
-        questionarray();
-        answer0array();
-        answer1array();
-        answer2array();
-        answer3array();
-      } else {
 
+      } else if (selec !== correct[Quesnum]) {
+        var tf = false;
+        restart();
       }
-      console.log("ac " + tf)
-      return tf
+      console.log("ac " + tf);
+      questionarray();
+      answer0array();
+      answer1array();
+      answer2array();
+      answer3array();
+      return tf;
   }
 
   ////////////////////////////// Fail
 
   function restart() {
     Quesnum = 0;
+    return;
   }
 
   console.log("Quesnum " + Quesnum);
