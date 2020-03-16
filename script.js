@@ -4,7 +4,19 @@ $(document).ready(function() {
 
   console.log("T");
 
-  //timer 
+  //////////////////////////////Answer Check
+
+  var selec = "ph";
+
+  //////////////////////////////Question Number
+
+  var Quesnum = 0;
+
+  //////////////////////////////
+
+  restart();
+
+  //////////////////////////////timer 
 
   function countdown(tm) {
     var tm = 30;
@@ -19,28 +31,22 @@ $(document).ready(function() {
         restart();
         // clearInterval(si);
         }
-        else if($(".cli").text() !== "") {
+      else if($(".cli").text() !== "") {
         tm = 30;
         $("#countdowntime").text(tm);
         }
       $(".cli").removeClass("cli");
-    },1000)
+    },500)
+    // si();
   }
 
   $("#countdowntime").append(countdown());
 
-  //////////////////////////////Answer Check
-
-  var selec = "ph";
-
-  //////////////////////////////Question Number
-
-  var Quesnum = 0;
-
   //////////////////////////////Question
 
   function questionarray() {
-    var question = ["how many legs does a cat have?"
+    var question = [ "Click below to begin"
+                   , "how many legs does a cat have?"
                    , "how many cats does a leg have?"
                    ];
     $("#ques").text(question[Quesnum]);
@@ -61,7 +67,8 @@ $(document).ready(function() {
   });
 
   function answer0array() {
-    var answer0 = ["1"
+    var answer0 = ["Click me"
+                  ,"1"
                   ,"3"
                   ];
     $("#answ0").text(answer0[Quesnum]);
@@ -81,8 +88,9 @@ $(document).ready(function() {
   });
 
   function answer1array() {
-    var answer1 = ["4"
-                  , "12"
+    var answer1 = [""
+                  ,"4"
+                  ,"12"
                   ];
     $("#answ1").text(answer1[Quesnum]);
     console.log(answer1[Quesnum]);
@@ -101,8 +109,9 @@ $(document).ready(function() {
   });
 
   function answer2array(num) {
-    var answer2 = ["9"
-                  , "43"
+    var answer2 = [""
+                  ,"9"
+                  ,"43"
                   ];
     $("#answ2").text(answer2[Quesnum]);
     console.log(answer2[Quesnum]);
@@ -121,7 +130,8 @@ $(document).ready(function() {
   });
 
   function answer3array(num) {
-    var answer3 = ["5"
+    var answer3 = [""
+                  ,"5"
                   , "what? that makes no sense"
                   ];
     $("#answ3").text(answer3[Quesnum]);
@@ -135,7 +145,8 @@ $(document).ready(function() {
 
   function answercheck() {
     var tf = false;
-    var correct = ["4"
+    var correct = ["Click me"
+                  ,"4"
                   ,"what? that makes no sense"
                   ];
     console.log("correct answ " + correct[Quesnum]);
@@ -153,6 +164,7 @@ $(document).ready(function() {
       answer1array();
       answer2array();
       answer3array();
+      $("#highscores").text("highscore: " + Quesnum);
       return tf;
   }
 
@@ -165,6 +177,9 @@ $(document).ready(function() {
     answer1array();
     answer2array();
     answer3array();
+    if (Quesnum === 1) {
+      $("#countdowntime").append(countdown());
+    }
     return;
   }
 
