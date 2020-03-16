@@ -12,10 +12,15 @@ $(document).ready(function() {
       tm--;
       $("#countdowntime").text(tm);
       // console.log("inside tm " + tm);
-      if(tm <= 0, ) {
-        clearInterval(si);
-        restart();
-      }
+      if(tm <= 0) {
+        tm = 30;
+        $("#countdowntime").text(tm);
+        // clearInterval(si);
+        }
+        // } else if(selec !== "ph") {
+        // tm = 30;
+        // $("#countdowntime").text(tm);
+        // }
     },1000)
   }
 
@@ -23,11 +28,11 @@ $(document).ready(function() {
 
   //////////////////////////////Answer Check
 
-  var selec = "";
+  var selec = "ph";
 
   //////////////////////////////Question Number
 
-  var Quesnum = "0";
+  var Quesnum = 0;
 
   //////////////////////////////Question
 
@@ -49,7 +54,7 @@ $(document).ready(function() {
     $("#answ0").toggleClass("cli");
     selec = $("#answ0").text();
     answercheck();
-    console.log("answer " + selec + " " + answercheck());
+    console.log("answer " + selec + " ");
   });
 
   function answer0array() {
@@ -69,7 +74,7 @@ $(document).ready(function() {
     $("#answ1").toggleClass("cli");
     selec = $("#answ1").text();
     answercheck();
-    console.log("answer " + selec + " " + answercheck());
+    console.log("answer " + selec + " ");
   });
 
   function answer1array() {
@@ -89,7 +94,7 @@ $(document).ready(function() {
     $("#answ2").toggleClass("cli");
     selec = $("#answ2").text();
     answercheck();
-    console.log("answer " + selec + " " + answercheck());
+    console.log("answer " + selec + " ");
   });
 
   function answer2array(num) {
@@ -109,7 +114,7 @@ $(document).ready(function() {
     $("#answ3").toggleClass("cli");
     selec = $("#answ3").text();
     answercheck();
-    console.log("answer " + selec + " " + answercheck());
+    console.log("answer " + selec + " ");
   });
 
   function answer3array(num) {
@@ -130,20 +135,30 @@ $(document).ready(function() {
     var correct = ["4"
                   ,"what? that makes no sense"
                   ];
-    if (selec == correct[Quesnum]) {
-      tf = true;
-      Quesnum = Quesnum + 1;
-    } else {
-      restart();
-    }
+    $(".answer").delay(800).removeClass("cli");
+    console.log("correct answ " + correct[Quesnum]);
+      if (selec == correct[Quesnum]) {
+        tf = true;
+        Quesnum = Quesnum + 1;
+        questionarray();
+        answer0array();
+        answer1array();
+        answer2array();
+        answer3array();
+      } else {
+
+      }
+      console.log("ac " + tf)
       return tf
   }
 
   ////////////////////////////// Fail
 
   function restart() {
-    Quesnum = "0";
+    Quesnum = 0;
   }
+
+  console.log("Quesnum " + Quesnum);
 
 
 
