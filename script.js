@@ -24,23 +24,34 @@ $(document).ready(function() {
       tm--;
       $("#countdowntime").text(tm);
       tm = $("#countdowntime").text();
-      // console.log("inside tm " + tm);
+      console.log("inside tm " + tm);
       if(tm == 0) {
         tm = 30;
         $("#countdowntime").text(tm);
         restart();
-        // clearInterval(si);
+        clearInterval(si);
         }
-      else if($(".cli").text() !== "") {
-        tm = 30;
-        $("#countdowntime").text(tm);
-        }
-      $(".cli").removeClass("cli");
-    },500)
-    // si();
+      else if (Quesnum < 1) {
+        clearInterval(si);
+        console.log("clear int");
+      }
+        setTimeout(function(){
+          if($(".answer").hasClass("cli")) {
+          
+          console.log("has class");
+          tm = 30;
+          $("#countdowntime").text(tm);
+          clearInterval(si);
+          }
+        },500);
+        setTimeout(function(){
+        $(".cli").removeClass("cli");
+        },250);
+      
+    },500);
   }
 
-  $("#countdowntime").append(countdown());
+  // $("#countdowntime").append(countdown());
 
   //////////////////////////////Question
 
@@ -154,7 +165,7 @@ $(document).ready(function() {
         tf = true;
         Quesnum = Quesnum + 1;
 
-      } else if (selec !== correct[Quesnum]) {
+      } else if (selec != correct[Quesnum]) {
         var tf = false;
         restart();
       }
@@ -164,7 +175,11 @@ $(document).ready(function() {
       answer1array();
       answer2array();
       answer3array();
-      $("#highscores").text("highscore: " + Quesnum);
+      $("#highscores").text("Score: " + Quesnum);
+      if (Quesnum > 0) {
+      console.log("start countdown");
+      countdown();
+      }
       return tf;
   }
 
@@ -177,9 +192,7 @@ $(document).ready(function() {
     answer1array();
     answer2array();
     answer3array();
-    if (Quesnum === 1) {
-      $("#countdowntime").append(countdown());
-    }
+    
     return;
   }
 
