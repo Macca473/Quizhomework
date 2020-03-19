@@ -1,7 +1,13 @@
 # Quizhomework
 
+<<<<<<< HEAD
 	
 
+=======
+
+ https://macca473.github.io/Quizhomework/
+ 
+>>>>>>> 5d9211ad4f4e7eec3e64019b386405f525710e78
 description:
 
 Answer Check:
