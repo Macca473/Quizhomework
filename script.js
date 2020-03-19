@@ -12,7 +12,11 @@ $(document).ready(function() {
 
   var Quesnum = 0;
 
-  //////////////////////////////
+  //////////////////////////////Highscores
+
+  var Highscores = "";
+
+  /////////////////////////////
 
   restart();
 
@@ -24,7 +28,7 @@ $(document).ready(function() {
       tm--;
       $("#countdowntime").text(tm);
       tm = $("#countdowntime").text();
-      console.log("inside tm " + tm);
+      // console.log("inside tm " + tm);
       if(tm == 0) {
         tm = 30;
         $("#countdowntime").text(tm);
@@ -183,15 +187,20 @@ $(document).ready(function() {
       return tf;
   }
 
+
   ////////////////////////////// Fail
 
   function restart() {
+    var Highscores = Highscores + "," +  Quesnum;
+    console.log("Highscores " + Highscores);
+    // localStorage.setItem('Highsocore', 'Tom');
     Quesnum = 0;
     questionarray();
     answer0array();
     answer1array();
     answer2array();
     answer3array();
+    
     
     return;
   }
