@@ -191,18 +191,17 @@ $(document).ready(function() {
   ////////////////////////////// Fail
 
   function restart() {
-    var Highscores = Highscores + "," +  Quesnum;
-    console.log("Highscores " + Highscores);
-    // localStorage.setItem('Highsocore', 'Tom');
+    Highscores = Highscores + "<div>" + "initials: " + $("input#initials").val() + " Highscore: " + Quesnum + "</div>";
+    localStorage.setItem('Highscore', Highscores);
     Quesnum = 0;
     questionarray();
     answer0array();
     answer1array();
     answer2array();
     answer3array();
-    
-    
-    return;
+    highscore
+    $("#highscore").html(localStorage.getItem('Highscore'));
+    return; 
   }
 
   console.log("Quesnum " + Quesnum);
